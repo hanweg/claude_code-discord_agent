@@ -3,6 +3,8 @@
 A Discord bot that uses Claude Code (`claude --print`) with full flag support.
 
 ## !!! USE WITH CAUTION !!! THIS ALLOWS DISCORD MESSAGES TO CONTROL YOUR COMPUTER !!!
+<img width="794" height="104" alt="image" src="https://github.com/user-attachments/assets/7dd836d9-3b7a-46c6-b3cb-a86d6947c144" />
+
 
 ## Features
 
