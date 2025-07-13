@@ -147,33 +147,32 @@ python claude_code-discord_agent.py
 Run with: `./setup.sh YOUR_DISCORD_TOKEN`
 
 ## claude_flags (put in config.json)
-​
 ### CLI commands
-Command	Description	Example
----
-claude -p "query"	Query via SDK, then exit	claude -p "explain this function"
-cat file | claude -p "query"	Process piped content	cat logs.txt | claude -p "explain"
-claude -c -p "query"	Continue via SDK	claude -c -p "Check for type errors"
-claude -r "<session-id>" "query"	Resume session by ID	claude -r "abc123" "Finish this PR"
-claude update	Update to latest version	claude update
-claude mcp	Configure Model Context Protocol (MCP) servers	See the Claude Code MCP documentation.
 
+| Command | Description | Example |
+|---------|-------------|---------|
+| `claude -p "query"` | Query via SDK, then exit | `claude -p "explain this function"` |
+| `cat file \| claude -p "query"` | Process piped content | `cat logs.txt \| claude -p "explain"` |
+| `claude -c -p "query"` | Continue via SDK | `claude -c -p "Check for type errors"` |
+| `claude -r "<session-id>" "query"` | Resume session by ID | `claude -r "abc123" "Finish this PR"` |
+| `claude update` | Update to latest version | `claude update` |
+| `claude mcp` | Configure Model Context Protocol (MCP) servers | See the Claude Code MCP documentation |
 ### CLI flags
 
-Customize Claude Code’s behavior with these command-line flags:
-Flag	Description	Example
----
---add-dir	Add additional working directories for Claude to access (validates each path exists as a directory)	claude --add-dir ../apps ../lib
---allowedTools	A list of tools that should be allowed without prompting the user for permission, in addition to settings.json files	"Bash(git log:*)" "Bash(git diff:*)" "Read"
---disallowedTools	A list of tools that should be disallowed without prompting the user for permission, in addition to settings.json files	"Bash(git log:*)" "Bash(git diff:*)" "Edit"
---print, -p	Print response without interactive mode (see SDK documentation for programmatic usage details)	claude -p "query"
---output-format	Specify output format for print mode (options: text, json, stream-json)	claude -p "query" --output-format json
---input-format	Specify input format for print mode (options: text, stream-json)	claude -p --output-format json --input-format stream-json
---verbose	Enable verbose logging, shows full turn-by-turn output (helpful for debugging in both print and interactive modes)	claude --verbose
---max-turns	Limit the number of agentic turns in non-interactive mode	claude -p --max-turns 3 "query"
---model	Sets the model for the current session with an alias for the latest model (sonnet or opus) or a model’s full name	claude --model claude-sonnet-4-20250514
---permission-mode	Begin in a specified permission mode	claude --permission-mode plan
---permission-prompt-tool	Specify an MCP tool to handle permission prompts in non-interactive mode	claude -p --permission-prompt-tool mcp_auth_tool "query"
---resume	Resume a specific session by ID, or by choosing in interactive mode	claude --resume abc123 "query"
---continue	Load the most recent conversation in the current directory	claude --continue
---dangerously-skip-permissions	Skip permission prompts (use with caution)	claude --dangerously-skip-permissions
+| Flag | Description | Example |
+|------|-------------|---------|
+| `--add-dir` | Add additional working directories for Claude to access (validates each path exists as a directory) | `claude --add-dir ../apps ../lib` |
+| `--allowedTools` | A list of tools that should be allowed without prompting the user for permission, in addition to `settings.json` files | `"Bash(git log:*)"` `"Bash(git diff:*)"` `"Read"` |
+| `--disallowedTools` | A list of tools that should be disallowed without prompting the user for permission, in addition to `settings.json` files | `"Bash(git log:*)"` `"Bash(git diff:*)"` `"Edit"` |
+| `--print`, `-p` | Print response without interactive mode (see SDK documentation for programmatic usage details) | `claude -p "query"` |
+| `--output-format` | Specify output format for print mode (options: `text`, `json`, `stream-json`) | `claude -p "query" --output-format json` |
+| `--input-format` | Specify input format for print mode (options: `text`, `stream-json`) | `claude -p --output-format json --input-format stream-json` |
+| `--verbose` | Enable verbose logging, shows full turn-by-turn output (helpful for debugging in both print and interactive modes) | `claude --verbose` |
+| `--max-turns` | Limit the number of agentic turns in non-interactive mode | `claude -p --max-turns 3 "query"` |
+| `--model` | Sets the model for the current session with an alias or full model name | `claude --model claude-sonnet-4-20250514` |
+| `--permission-mode` | Begin in a specified permission mode | `claude --permission-mode plan` |
+| `--permission-prompt-tool` | Specify an MCP tool to handle permission prompts in non-interactive mode | `claude -p --permission-prompt-tool mcp_auth_tool "query"` |
+| `--resume` | Resume a specific session by ID, or by choosing in interactive mode | `claude --resume abc123 "query"` |
+| `--continue` | Load the most recent conversation in the current directory | `claude --continue` |
+| `--dangerously-skip-permissions` | Skip permission prompts (use with caution) | `claude --dangerously-skip-permissions` |
+
