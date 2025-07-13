@@ -38,6 +38,7 @@ A Discord bot that uses Claude Code (`claude --print`) with full flag support.
    ```
 
 4. **Create config.json**:
+
    ```json
    {
      "discord_token": "YOUR_DISCORD_BOT_TOKEN",
@@ -54,6 +55,23 @@ A Discord bot that uses Claude Code (`claude --print`) with full flag support.
      "random_message_prompt": "Generate an interesting message for this Discord channel."
    }
    ```
+
+   Example *very* permissive config:
+   ```json
+   {
+     "discord_token": "YOUR_DISCORD_BOT_TOKEN",
+     "command_prefix": "!",
+     "monitor_mentions": true,
+     "monitor_all_messages": true,
+     "allowed_channels": [],
+     "max_message_length": 2000,
+     "context_messages": 5,
+     "claude_flags": ["--verbose", "--model", "sonnet", "--allowedTools", "Bash", "--allowedTools", "Write", "--allowedTools", "Edit", "--allowedTools", "Read"],
+     "random_messages_enabled": false,
+     "random_message_interval": 60,
+     "random_message_channels": [],
+     "random_message_prompt": "Generate an interesting message for this Discord channel."
+   }
 
 5. **Run the bot**:
    ```bash

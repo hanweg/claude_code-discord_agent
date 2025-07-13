@@ -44,3 +44,6 @@ venv.bak/
 
 # Config
 config.json
+
+# AI
+CLAUDE.md

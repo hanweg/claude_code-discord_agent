@@ -174,7 +174,7 @@ class SimpleClaudeBot(commands.Bot):
             full_prompt = f"{context}\n{prompt}" if context else prompt
             cmd.append(full_prompt)
             
-            debug_logger.info(f"CLAUDE: Running command: {' '.join(cmd[:3])} [prompt]")
+            debug_logger.info(f"CLAUDE: Running command: {' '.join(cmd[:-1])} [prompt]")
             
             # Run command
             process = await asyncio.create_subprocess_exec(
